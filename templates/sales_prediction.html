@@ -1,0 +1,128 @@
+{% extends 'base.html'%}
+{% block title%}
+Sales Prediction
+{% endblock title%}
+{% block body %}
+  <style>
+    .wrapper {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      min-height: 65vh;
+      background-color: #f8f9fa;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 5px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      color: white;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: white;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+
+</head>
+
+<body>
+  
+  <br>
+  <h1>
+    <div style="text-align:center">
+      <font color='black'>
+        Big Mart Sales Prediction
+      </font>
+    </div>
+  </h1>
+  <br>
+
+
+  <div class="wrapper">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-10 col-sm-6 mx-auto">
+          <form class="" action="/sales_prediction.html" method="post">
+
+            <div class="form-group">
+              <input type="text" name="item_weight" id="item_weight" class="form-control" required placeholder="Enter Item Weight">
+            </div>
+
+            <div class="form-group">
+              <select class="form-control" name="item_fat_content" required="required">
+                <option value="" selected disabled hidden>Item Fat Content</option>
+                <option value="1">Low Fat</option>
+                <option value="2">Regular</option>
+                <option value="0">High Fat</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="item_visibility" id="item_visibility" class="form-control" required placeholder="Enter Item Visibility">
+            </div>
+
+            <div class="form-group">
+              <select class="form-control chosenn" name="item_type" required="required">
+                <option value="" selected disabled hidden>Item Type</option>
+                <option value="0">Baking Goods</option>
+                <option value="1">Breads</option>
+                <option value="2">Breakfast</option>
+                <option value="3">Canned</option>
+                <option value="4">Dairy</option>
+                <option value="5">Frozen Foods</option>
+                <option value="6">Fruits and Vegetables</option>
+                <option value="7">Hard Drinks</option>
+                <option value="8">Health and Hygiene</option>
+                <option value="9">Household</option>
+                <option value="10">Meat</option>
+                <option value="11">Others</option>
+                <option value="12">Seafood</option>
+                <option value="13">Snack Foods</option>
+                <option value="14">Soft Drinks</option>
+                <option value="15">Starchy Foods</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="item_mrp" id="item_mrp" class="form-control" required placeholder="Enter Item MRP">
+            </div>
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Submit">
+              <input type="reset" class="btn btn-danger" value="Reset">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center">
+    {% if prediction %}
+    <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+  </div>
+
+{% endblock body %}

@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% block title%}
+Checkout
+{% endblock title%}
+{% block body %}
+    <style>
+        
+        /* Styles for Checkout Page */
+        .checkout-container {
+            padding: 20px;
+        }
+        .item-details {
+            margin-bottom: 10px;
+        }
+        .total-bill {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .submit {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <!-- Cart Items -->
+        <div class="item-details">
+            <h3>Cart Items:</h3>
+            {% for cart_item in cart_items %}
+            <div>{{ cart_item.name }} - ${{ cart_item.price }}</div>
+            {% endfor %}
+        </div>
+        <!-- Total Bill -->
+        <div class="total-bill">
+            <h3>Total Bill: ${{ total_bill }}</h3>
+        </div>
+        <form action="/create-checkout-session" method="post">
+            <button type = "submit" id="checkout-button">Pay Here</button>
+        </from>   
+    </div>
+
+{% endblock body%}

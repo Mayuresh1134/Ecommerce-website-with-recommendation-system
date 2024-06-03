@@ -1,0 +1,10 @@
+admin 
+username: admin
+gmail: admin@gmail.com 
+password: ad123
+
+
+user 
+username: mayurp
+gmail: m@gmail.com
+password: 123

@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% block title %}
+Product: {{product.name}}
+{% endblock title %}
+{% block body %}
+
+    <style>
+        
+        /* CSS for product details page */
+        .product-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-details h2 {
+            margin-top: 0;
+        }
+        .product-image {
+            width: 200px; /* Set the width to your desired size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: Add border radius for rounded corners */
+            margin-bottom: 20px;
+        }
+        .associated-products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .associated-product {
+            flex: 1;
+            max-width: 200px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .associated-product h4 {
+            margin-top: 0;
+        }
+    </style>
+    <!-- Product Details -->
+    <div class="product-details">
+        <h2>{{ product.name }}</h2>
+        <img class="product-image" src="{{ product.image }}" alt="{{ product.name }}">
+        <p>Price: ${{ product.price }}</p>
+        <!-- Add any additional product details here -->
+        <form action="/add_to_cart" method="post">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <button type="submit">Add to Cart</button>
+        </form>
+
+        {% if associated_products %}
+        <!-- Associated Products Details -->
+        <h3> Frequently Bought Together</h3>
+        <div class="associated-products">
+            {% for associated_product in associated_products %}
+            <div class="associated-product">
+                <h4>{{ associated_product.name }}</h4>
+                <img class="product-image" src="{{ associated_product.image }}" alt="{{ associated_product.name }}">
+                <p>Price: ${{ associated_product.price }}</p>
+                <!-- Add any additional associated product details here -->
+                <form action="/add_to_cart" method="post">
+                    <input type="hidden" name="product_id" value="{{ associated_product.id }}">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock body %}
