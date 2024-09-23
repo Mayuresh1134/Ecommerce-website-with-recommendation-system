@@ -1,4 +1,5 @@
 E-Commerce Product Placement Optimization using Apriori Algorithm
+
 Project Overview
 This project aims to enhance product placement and recommendations on e-commerce platforms by leveraging association rule mining, specifically through the Apriori algorithm. By analyzing transactional data, we identify frequent itemsets and generate association rules to discover valuable patterns in customer buying behavior. These insights can be used to optimize product placement, improve customer experience, and drive sales growth.
 
