@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'your_secret_key_here'
 
-stripe.api_key = "sk_test_51NyYskSAl0YqbydO6yLFNNPVdbMxyRhbDDaNUINFgchED26mbx1PU7l7AfWtoEGSEdYpJ6hiua4aKODKnD9DVEOc00mHxCU6uZ"
+stripe.api_key = "add_your_stipe_key_here"
 YOUR_DOMAIN = "http://localhost:5000"
 db.init_app(app)
 migrate = Migrate(app, db)
