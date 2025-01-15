@@ -1,5 +1,3 @@
-# We are doing this for our ROSPL project
-
 ## E-Commerce Product Placement Optimization using Apriori Algorithm
 
 ### Project Overview:
